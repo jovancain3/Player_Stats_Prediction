@@ -1,0 +1,334 @@
+Inputs
+Historical Offense Data
+Passing yards, touchdowns, completions, and attempts (for quarterbacks)
+Rushing yards, attempts, and touchdowns (for running backs)
+Receiving yards, receptions, and touchdowns (for wide receivers/tight ends)
+Fumbles, interceptions, and sacks allowed
+Fantasy points from previous games (PPR or standard)
+Snap share: Percentage of team snaps played.
+Target share: Percentage of team targets.
+Carry share: Percentage of rushing attempts.
+
+Offensive Line Strength: Rating or stat indicating the strength of the offensive line, which influences rushing and passing yards.
+
+Defensive Strength: How well the team’s 
+defense performs, which can affect overall game scripts (e.g., more passing if the team is behind).
+Overall Team Performance: Win-loss record, offensive rank, and scoring average.
+
+
+Defensive Strength of Opponent: Relevant to the position of the player, such as:
+Opponent passing 
+defense stats (affects quarterbacks and wide receivers).
+Opponent rushing 
+defense stats (affects running backs).
+Opponent receiving 
+defense (affects tight ends/wide receivers).
+Opponent’s Red Zone 
+Defense: How well the opponent performs in preventing red zone touchdowns.
+
+Game Context Features
+Game Location: Whether the game is played at home or away (home field advantage).
+Weather Conditions: Cold, wind, rain, or snow can affect passing and kicking.
+Game Spread: The predicted point differential, which can help predict whether the team will be in a passing or rushing script.
+Over/Under Total Points: The expected total points for the game, often tied to the likelihood of more offensive production.
+Time of Possession: Expected time of possession for each team.
+
+Advanced Metrics
+Yards After Catch (YAC): For receivers, a measure of how many yards they gain after the catch.
+Air Yards: Total distance the ball is thrown toward a receiver.
+Rushing/Receiving Efficiency: Yards per carry, yards per route run.
+Route Participation: Percentage of routes run when the team passes the ball.
+
+Example Input Features for a QB:
+Historical Stats: Pass completions, yards, touchdowns, interceptions.
+Team Performance: Offensive line rating, team offensive rank.
+Opponent: Opponent's pass 
+defense rank, sack rate, pressure rate.
+Game Context: Weather, game spread, over/under, home/away.
+Advanced Metrics: Yards per attempt, EPA, completion percentage under pressure.
+Example Input Features for a WR:
+Historical Stats: Receiving yards, receptions, targets, touchdowns.
+Player Usage: Target share, snap share, route participation.
+Opponent: Opponent's pass 
+defense and cornerback matchups.
+Game Context: Game pace, weather, spread.
+Feature Engineering Ideas:
+Rolling Averages: For example, a player’s average yards over the last three games.
+Differences: Differences between a player’s performance at home vs. away.
+Ratios: Ratio of targets to catches, or pass attempts to rushing attempts.
+
+INPUTS
+week
+games_played
+season
+season_type
+player_id	
+player_name	
+position	
+position_group	
+offensive_team	
+defensive_team
+
+def_tackles_avg	
+def_tackles_for_loss_avg	
+def_tackles_for_loss_yards_avg	
+def_fumbles_forced_avg	
+def_sacks_avg	
+def_sack_yards_avg	
+def_qb_hits_avg	
+def_interceptions_avg	
+def_interception_yards_avg	
+def_pass_defended_avg	
+def_tds_avg	
+def_fumbles_avg	
+def_safety_avg	
+def_penalty_avg	
+def_penalty_yards_avg	
+
+completions_avg	
+attempts_avg	
+passing_yards_avg	
+passing_tds_avg	
+interceptions_avg	
+sacks_avg	
+sack_yards_avg	
+passing_air_yards_avg	
+passing_yards_after_catch_avg	
+passing_first_downs_avg	
+passing_epa_avg	
+passing_2pt_conversions_avg	
+pacr_avg	
+dakota_avg	
+carries_avg	
+rushing_yards_avg	
+rushing_tds_avg	
+rushing_fumbles_avg	
+rushing_fumbles_lost_avg	
+rushing_first_downs_avg	
+rushing_epa_avg	
+rushing_2pt_conversions_avg	
+receptions_avg	
+targets_avg	
+receiving_yards_avg	
+receiving_tds_avg	
+receiving_fumbles_avg	
+receiving_fumbles_lost_avg	
+receiving_air_yards_avg	
+receiving_yards_after_catch_avg	
+receiving_first_downs_avg	
+receiving_epa_avg	
+receiving_2pt_conversions_avg	
+racr_avg	
+target_share_avg	
+air_yards_share_avg	
+wopr_avg	
+special_teams_tds_avg	
+fantasy_points_avg	
+fantasy_points_ppr_avg	
+
+OUTPUTS
+week
+games_played
+season
+season_type
+player_id	
+player_name	
+position	
+position_group	
+offensive_team	
+defensive_team
+
+def_tackles	
+def_tackles_for_loss	
+def_tackles_for_loss_yards	
+def_fumbles_forced	
+def_sacks	
+def_sack_yards	
+def_qb_hits	
+def_interceptions	
+def_interception_yards	
+def_pass_defended	
+def_tds	
+def_fumbles	
+def_safety	
+def_penalty	
+def_penalty_yards	
+	
+completions	
+attempts	
+passing_yards	
+passing_tds	
+interceptions	
+sacks	
+sack_yards	
+passing_air_yards	
+passing_yards_after_catch	
+passing_first_downs	
+passing_epa	
+passing_2pt_conversions	
+pacr	
+dakota	
+carries	rushing_yards
+rushing_tds	
+rushing_fumbles	
+rushing_fumbles_lost	
+rushing_first_downs	
+rushing_epa	
+rushing_2pt_conversions	
+receptions	
+targets	
+receiving_yards	
+receiving_tds	
+receiving_fumbles	
+receiving_fumbles_lost	
+receiving_air_yards	
+receiving_yards_after_catch	
+receiving_first_downs	
+receiving_epa	
+receiving_2pt_conversions	
+racr	
+target_share	
+air_yards_share	wopr	
+special_teams_tds	
+fantasy_points	
+fantasy_points_ppr	
+games_played
+
+
+
+
+ALL COLUMNS
+week
+season
+defensive_team	
+def_tackles	
+def_tackles_solo
+def_tackles_with_assist	
+def_tackle_assists	
+def_tackles_for_loss	
+def_tackles_for_loss_yards	
+def_fumbles_forced	
+def_sacks	
+def_sack_yards	
+def_qb_hits	
+def_interceptions	
+def_interception_yards	
+def_pass_defended	
+def_tds	
+def_fumbles	
+def_fumble_recovery_own	
+def_fumble_recovery_yards_own	
+def_fumble_recovery_opp	
+def_fumble_recovery_yards_opp	
+def_safety	
+def_penalty	
+def_penalty_yards	
+
+player_id	
+player_name	
+position	
+position_group	
+offensive_team	
+season_type	
+completions	
+attempts	
+passing_yards	
+passing_tds	
+interceptions	
+sacks	
+sack_yards	
+sack_fumbles	
+sack_fumbles_lost	
+passing_air_yards	
+passing_yards_after_catch	
+passing_first_downs	
+passing_epa	passing_2pt_conversions	
+pacr	
+dakota	
+carries	rushing_yards
+rushing_tds	
+rushing_fumbles	
+rushing_fumbles_lost	
+rushing_first_downs	
+rushing_epa	
+rushing_2pt_conversions	
+receptions	
+targets	
+receiving_yards	
+receiving_tds	
+receiving_fumbles	
+receiving_fumbles_lost	
+receiving_air_yards	
+receiving_yards_after_catch	
+receiving_first_downs	
+receiving_epa	
+receiving_2pt_conversions	
+racr	
+target_share	
+air_yards_share	wopr	
+special_teams_tds	
+fantasy_points	
+fantasy_points_ppr	
+games_played	
+
+def_tackles_avg	
+def_tackles_solo_avg	
+def_tackles_with_assist_avg	
+def_tackle_assists_avg	
+def_tackles_for_loss_avg	
+def_tackles_for_loss_yards_avg	
+def_fumbles_forced_avg	
+def_sacks_avg	
+def_sack_yards_avg	
+def_qb_hits_avg	
+def_interceptions_avg	
+def_interception_yards_avg	
+def_pass_defended_avg	
+def_tds_avg	
+def_fumbles_avg	
+def_fumble_recovery_own_avg	
+def_fumble_recovery_yards_own_avg	
+def_fumble_recovery_opp_avg	
+def_fumble_recovery_yards_opp_avg	
+def_safety_avg	
+def_penalty_avg	
+def_penalty_yards_avg	
+
+completions_avg	
+attempts_avg	
+passing_yards_avg	
+passing_tds_avg	
+interceptions_avg	
+sacks_avg	
+sack_yards_avg	
+sack_fumbles_avg	
+sack_fumbles_lost_avg	
+passing_air_yards_avg	
+passing_yards_after_catch_avg	
+passing_first_downs_avg	passing_epa_avg	
+passing_2pt_conversions_avg	pacr_avg	
+dakota_avg	carries_avg	rushing_yards_avg	
+rushing_tds_avg	rushing_fumbles_avg	
+rushing_fumbles_lost_avg	
+rushing_first_downs_avg	
+rushing_epa_avg	
+rushing_2pt_conversions_avg	
+receptions_avg	
+targets_avg	
+receiving_yards_avg	
+receiving_tds_avg	
+receiving_fumbles_avg	
+receiving_fumbles_lost_avg	
+receiving_air_yards_avg	
+receiving_yards_after_catch_avg	
+receiving_first_downs_avg	
+receiving_epa_avg	
+receiving_2pt_conversions_avg	
+racr_avg	
+target_share_avg	
+air_yards_share_avg	
+wopr_avg	
+special_teams_tds_avg	
+fantasy_points_avg	
+fantasy_points_ppr_avg			
+
